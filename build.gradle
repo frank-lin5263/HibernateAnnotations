@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+    // mavenCentral()
+}
+
+dependencies {
+    compile 'org.hibernate:hibernate-core:3.6.10.Final'
+    compile 'org.slf4j:slf4j-simple:1.6.1'
+    compile 'commons-logging:commons-logging:1+'
+    compile 'org.javassist:javassist:3+'
+    compile 'mysql:mysql-connector-java:5+'
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+sourceCompatibility = '1.8'
+compileJava.options.encoding = 'UTF-8'
+
+version = '1.0'
+
+//mainClassName = 'com.starbooks.view.PublisherManager'
+mainClassName = 'com.starbooks.view.BookManager'
+
