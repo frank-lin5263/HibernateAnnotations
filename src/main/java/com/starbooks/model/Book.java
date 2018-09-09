@@ -8,13 +8,13 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book", catalog = "StarBooks")
+@Table(name = "book", catalog = "starbooks")
 public class Book implements Serializable {
 	static final long serialVersionUID = 2010L;
 
 	private int bookId;
 	private Publisher publisher;
-	private String isbn, pubId;
+	private String isbn;
 	private String title;
 	private Date releaseDate;
 	private double listPrice;
@@ -24,21 +24,19 @@ public class Book implements Serializable {
 	public Book() {
 	}
 
-	public Book(int bookId, Publisher publisher, String isbn, String pubId) {
+	public Book(int bookId, Publisher publisher, String isbn) {
 		super();
 		this.bookId = bookId;
 		this.publisher = publisher;
 		this.isbn = isbn;
-		this.pubId = pubId;
 	}
 
-	public Book(int bookId, Publisher publisher, String isbn, String pubId, String title, Date releaseDate,
+	public Book(int bookId, Publisher publisher, String isbn, String title, Date releaseDate,
 			double listPrice, byte[] coverImage, Set<Author> authors) {
 		super();
 		this.bookId = bookId;
 		this.publisher = publisher;
 		this.isbn = isbn;
-		this.pubId = pubId;
 		this.title = title;
 		this.releaseDate = releaseDate;
 		this.listPrice = listPrice;
@@ -74,15 +72,6 @@ public class Book implements Serializable {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
-	}
-
-	@Column(name = "title", nullable = false, length = 2)
-	public String getPubId() {
-		return pubId;
-	}
-
-	public void setPubId(String pubId) {
-		this.pubId = pubId;
 	}
 
 	@Column(name = "title", nullable = false, length = 100)

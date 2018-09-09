@@ -10,12 +10,13 @@ public class HibernateUtil {
 
 	static {
 		try {
-	        Configuration cfg = new Configuration();
+/*	        Configuration cfg = new Configuration();
 	        cfg.configure();
-	        factory = cfg.buildSessionFactory(); 			
-/*			factory = new AnnotationConfiguration()
+	        factory = cfg.buildSessionFactory(); */			
+			factory = new AnnotationConfiguration()
 					.configure()
-					.buildSessionFactory();*/
+					.buildSessionFactory();
+			System.out.println("HibernateUtil: " + factory.toString());
 		} 
 		catch (Throwable ex) {
 			System.out.println(ex.getMessage());

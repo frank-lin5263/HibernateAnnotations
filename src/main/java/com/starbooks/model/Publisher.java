@@ -6,7 +6,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "publisher", catalog = "StarBooks")
+@Table(name = "publisher", catalog = "starbooks")
 public class Publisher implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -49,7 +49,7 @@ public class Publisher implements Serializable {
 		this.publisherName = publisherName;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "publisher")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "publisher")
 	public Set<Book> getBooks() {
 		return books;
 	}
